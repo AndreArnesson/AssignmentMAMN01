@@ -1,11 +1,15 @@
 package com.example.assignment;
 
+import android.content.Context;
 import android.content.Intent;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.animation.Animation;
@@ -18,6 +22,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class Compass extends AppCompatActivity implements SensorEventListener {
     private TextView textView;
+    private TextView azimuth;
+    private TextView norr;
 
     private ImageView imageView;
 
@@ -44,6 +50,8 @@ public class Compass extends AppCompatActivity implements SensorEventListener {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
         textView = findViewById(R.id.direction);
+        azimuth = findViewById(R.id.azimuth);
+        norr = findViewById(R.id.norr);
 
         imageView = findViewById(R.id.imageView);
 
@@ -91,12 +99,50 @@ public class Compass extends AppCompatActivity implements SensorEventListener {
             int degree = (int)azimuthInDegree;
             textView.setText(degree + "°");
 
+            azimuth.setText(getAzimuth(degree));
+
+
+
+            if((degree<15 && degree>-15) || degree>345) {
+                norr.setText("Du pekar nu mot norr! Otroligt duktig om jag får säga så själv xD");
+                Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    v.vibrate(VibrationEffect.createOneShot(500, VibrationEffect.DEFAULT_AMPLITUDE));
+                } else {
+                    v.vibrate(500);
+                }
+            } else {
+                norr.setText("");
+            }
         }
     }
 
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
 
+    }
+
+    private String getAzimuth(int angle){
+        String direction = "";
+
+        if (angle >= 350 || angle <= 10)
+            direction = "N";
+        if (angle < 350 && angle > 280)
+            direction = "NW";
+        if (angle <= 280 && angle > 260)
+            direction = "W";
+        if (angle <= 260 && angle > 190)
+            direction = "SW";
+        if (angle <= 190 && angle > 170)
+            direction = "S";
+        if (angle <= 170 && angle > 100)
+            direction = "SE";
+        if (angle <= 100 && angle > 80)
+            direction = "E";
+        if (angle <= 80 && angle > 10)
+            direction = "NE";
+
+        return direction;
     }
 
     @Override

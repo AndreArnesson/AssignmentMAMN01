@@ -10,11 +10,25 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello Äckelbarn!"
+        android:background="#FFFFFF"
+        android:rotation="-48"
+        android:rotationX="23"
+        android:rotationY="53"
+        android:shadowColor="#273223"
+        android:shadowRadius="10"
+        android:singleLine="true"
+        android:soundEffectsEnabled="true"
+        android:text="Otroligt bra app"
+        android:textColor="#1E1111"
+        android:textSize="36sp"
+        app:drawableTint="#D11515"
+        app:flow_firstHorizontalStyle="packed"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.57"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.499" />
 
     <Button
         android:id="@+id/accelerometer"
@@ -37,12 +51,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="159dp"
         android:layout_marginLeft="159dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="28dp"
         android:layout_marginEnd="159dp"
         android:layout_marginRight="159dp"
         android:text="Compass"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.307"
+        app:layout_constraintHorizontal_bias="0.615"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/accelerometer" />
 

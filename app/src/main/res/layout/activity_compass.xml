@@ -14,7 +14,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/compass"
-        tools:layout_editor_absoluteY="48dp" />
+        tools:layout_editor_absoluteY="49dp" />
 
     <TextView
         android:id="@+id/direction"
@@ -34,4 +34,27 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/azimuth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="direction"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/direction" />
+
+    <TextView
+        android:id="@+id/norr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:width="600px"
+        android:shadowColor="#FF1A1A"
+        android:shadowRadius="10"
+        android:text="ärdunorr"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/azimuth" />
 </androidx.constraintlayout.widget.ConstraintLayout>
