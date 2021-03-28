@@ -52,7 +52,6 @@
         android:width="600px"
         android:shadowColor="#FF1A1A"
         android:shadowRadius="10"
-        android:text="ärdunorr"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
