@@ -2,9 +2,10 @@ package com.example.assignment;
 
 import android.content.Intent;
 import android.hardware.Sensor;
-import android.hardware.SensorManager;
-import android.hardware.SensorEventListener;
 import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -17,6 +18,8 @@ public class Accelerometer extends AppCompatActivity implements SensorEventListe
     private TextView xText, yText, zText;
     private Sensor mySensor;
     private SensorManager sensorM;
+
+    private MediaPlayer player;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,13 +48,27 @@ public class Accelerometer extends AppCompatActivity implements SensorEventListe
                 startActivity(homeIntent);
             }
         });
+
+
+
+
     }
 
     @Override
     public void onSensorChanged(SensorEvent event) {
-        xText.setText("X: " + event.values[0]);
-        yText.setText("Y: " + event.values[1]);
-        zText.setText("Z: " + event.values[2]);
+        double x = Math.round(event.values[0]*100.0)/100.0;
+        double y = Math.round(event.values[1]*100.0)/100.0;
+        double z = Math.round(event.values[2]*100.0)/100.0;
+        xText.setText("X: " +  x);
+        yText.setText("Y: " + y);
+        zText.setText("Z: " + z);
+
+        if(z<-8 && z>-10) {
+            if (player == null) {
+                player = MediaPlayer.create(this, R.raw.upsidedown);
+            }
+            player.start();
+        }
     }
 
     @Override
