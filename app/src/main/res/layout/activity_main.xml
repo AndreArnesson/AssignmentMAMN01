@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#FFFFFF"
-        android:rotation="-48"
+        android:rotation="-43"
         android:rotationX="23"
         android:rotationY="53"
         android:shadowColor="#273223"
