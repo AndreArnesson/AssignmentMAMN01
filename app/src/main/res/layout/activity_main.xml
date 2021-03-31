@@ -13,7 +13,7 @@
         android:background="#FFFFFF"
         android:rotation="-43"
         android:rotationX="23"
-        android:rotationY="53"
+        android:rotationY="47"
         android:shadowColor="#273223"
         android:shadowRadius="10"
         android:singleLine="true"
