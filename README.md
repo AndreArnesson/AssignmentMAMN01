@@ -12,5 +12,5 @@ I also added the interaction that if you point towards north the background chan
 To make the compass a bit more personal I decided to draw my own in paint.
 
 
-In the accelerometer the values of X, Y and Z are shown and if the phone is upside down (Z equals about -9.2) a soundclip will be played.
+In the accelerometer the values of X, Y and Z are shown and if the phone is upside down (Z equals about -9.2) a sound clip will be played.
 
