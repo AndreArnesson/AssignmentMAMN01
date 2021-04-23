@@ -7,7 +7,7 @@ Followed this tutorial to build the accelerometer https://www.youtube.com/watch?
 
 In the compass I show the degrees to where you are pointing and also the directions: north, northeast, south and so on.
 
-I also addedadded the interaction that if you point towards north the background changes color and the phone vibrates.
+I also added the interaction that if you point towards north the background changes color and the phone vibrates.
 
 To make the compass a bit more personal I decided to draw my own in paint.
 
