@@ -49,9 +49,6 @@ public class Accelerometer extends AppCompatActivity implements SensorEventListe
             }
         });
 
-
-
-
     }
 
     @Override

@@ -1,30 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Compass">
+    tools:context=".Compass"
+    >
+    <LinearLayout
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:id="@+id/layout">
+    </LinearLayout>
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="366dp"
+        android:layout_height="683dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.555"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/compass"
-        tools:layout_editor_absoluteY="49dp" />
+        app:srcCompat="@drawable/egenkompass"
+        tools:layout_editor_absoluteY="98dp" />
 
     <TextView
-        android:id="@+id/direction"
+        android:id="@+id/azimuth"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
         android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.515"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="148dp" />
+        tools:layout_editor_absoluteY="149dp" />
 
     <Button
         android:id="@+id/homeButton"
@@ -36,24 +43,27 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/azimuth"
+        android:id="@+id/direction"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="direction"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.509"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/direction" />
+        app:layout_constraintTop_toBottomOf="@+id/azimuth" />
 
     <TextView
         android:id="@+id/norr"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="360dp"
+        android:layout_height="37dp"
         android:width="600px"
+        android:gravity="center"
         android:shadowColor="#FF1A1A"
         android:shadowRadius="10"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/azimuth" />
+        app:layout_constraintTop_toBottomOf="@+id/direction" />
 </androidx.constraintlayout.widget.ConstraintLayout>

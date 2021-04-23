@@ -2,6 +2,7 @@ package com.example.assignment;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -16,16 +17,17 @@ import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Compass extends AppCompatActivity implements SensorEventListener {
-    private TextView textView;
     private TextView azimuth;
-    private TextView norr;
+    private TextView direction;
+    LinearLayout layout;
 
-    private ImageView imageView;
+    private ImageView imageView;    
 
     private SensorManager sensorManager;
     private Sensor acceleratorSensor, magnetometerSensor;
@@ -49,11 +51,10 @@ public class Compass extends AppCompatActivity implements SensorEventListener {
         setContentView(R.layout.activity_compass);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
-        textView = findViewById(R.id.direction);
         azimuth = findViewById(R.id.azimuth);
-        norr = findViewById(R.id.norr);
-
+        direction = findViewById(R.id.direction);
         imageView = findViewById(R.id.imageView);
+        layout = findViewById(R.id.layout);
 
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         acceleratorSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
@@ -96,15 +97,15 @@ public class Compass extends AppCompatActivity implements SensorEventListener {
             currentDegree = -azimuthInDegree;
             lastUpdatedTime = System.currentTimeMillis();
 
-            int degree = (int)azimuthInDegree;
-            textView.setText(degree + "°");
+            int degree = (int)(azimuthInDegree+360)%360;
+            azimuth.setText(degree + "°");
 
-            azimuth.setText(getAzimuth(degree));
+            direction.setText(getAzimuth(degree));
 
 
 
-            if((degree<15 && degree>-15) || degree>345) {
-                norr.setText("Du pekar nu mot norr! Otroligt duktig om jag får säga så själv xD");
+            if(degree<15 || degree>345) {
+                layout.setBackgroundColor(Color.LTGRAY);
                 Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                     v.vibrate(VibrationEffect.createOneShot(500, VibrationEffect.DEFAULT_AMPLITUDE));
@@ -112,7 +113,8 @@ public class Compass extends AppCompatActivity implements SensorEventListener {
                     v.vibrate(500);
                 }
             } else {
-                norr.setText("");
+                layout.setBackgroundColor(Color.WHITE);
+
             }
         }
     }
